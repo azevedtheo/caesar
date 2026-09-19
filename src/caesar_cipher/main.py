@@ -87,6 +87,9 @@ def interactive_mode() -> None:
                 key_bindings=kb,
             )
 
+            if command is None:
+                break
+                
             if not command.strip():
                 continue
 

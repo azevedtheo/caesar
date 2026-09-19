@@ -9,7 +9,7 @@
    ╚═════╝╚═╝  ╚═╝╚══════╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝
 ```
 
-![Tests](https://github.com/<user>/<repo>/actions/workflows/tests.yml/badge.svg)
+![Tests](https://github.com/azevedtheo/caesar/actions/workflows/tests.yml/badge.svg)
 ![Python](https://img.shields.io/badge/python-3.10%2B-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
@@ -28,8 +28,8 @@ A command-line tool for encrypting, decrypting, and automatically cracking Caesa
 ## Installation
 
 ```bash
-git clone https://github.com/<your-username>/caesar-cipher-proj.git
-cd caesar-cipher-proj
+git clone https://github.com/azevedtheo/caesar.git
+cd caesar
 pip install -e .
 ```
 
@@ -40,36 +40,36 @@ Requires Python 3.10+.
 ### Encrypt / Decrypt
 
 ```bash
-caesar encrypt "hello world" --key 3
+encrypt "hello world" --key 3
 # Encrypted: khoor zruog
 
-caesar decrypt "khoor zruog" --key 3
+decrypt "khoor zruog" --key 3
 # Decrypted: hello world
 ```
 
 Read from a file and write to another:
 
 ```bash
-caesar encrypt --input-file plain.txt --output-file cipher.txt --key 7
+encrypt --input-file plain.txt --output-file cipher.txt --key 7
 ```
 
 Pipe input through stdin:
 
 ```bash
-echo "attack at dawn" | caesar encrypt --key 5
+echo "attack at dawn" | encrypt --key 5
 ```
 
 ### Crack a cipher (no key needed)
 
 ```bash
-caesar crack "khoor zruog"
+crack "khoor zruog"
 ```
 
 Shows a ranked table of the most likely plaintexts, best guess first. Use `--top` to control how many candidates are shown, or `--all` to see all 26 shifts:
 
 ```bash
-caesar crack "khoor zruog" --top 3
-caesar crack "khoor zruog" --all
+crack "khoor zruog" --top 3
+crack "khoor zruog" --all
 ```
 
 ### Interactive mode
@@ -98,17 +98,6 @@ src/caesar_cipher/
 ├── utils.py           # shared I/O helpers (read_input, write_output, validate_key)
 └── main.py             # Typer CLI app + interactive shell
 ```
-
-## Development
-
-```bash
-pip install -e ".[dev]"
-pytest
-```
-
-*(Add a `[project.optional-dependencies] dev = ["pytest"]` section to `pyproject.toml` once tests are in place.)*
-
-Suggested coverage before your first release: round-trip encrypt/decrypt for both letter cases, `validate_key` boundary values, and `FrequencyAnalyzer.rank_candidates` against a known ciphertext.
 
 ## Contributing
 
