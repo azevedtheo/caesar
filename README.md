@@ -37,6 +37,12 @@ Requires Python 3.10+.
 
 ## Usage
 
+<div align="center">
+
+![Caesar-Running](docs/caesar_running.png)
+
+</div>
+
 ### Encrypt / Decrypt
 
 ```bash
